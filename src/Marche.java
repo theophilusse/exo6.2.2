@@ -37,7 +37,7 @@ public class Marche {
     */
     public void		        setPrixKg(float poulet, float canard)
     {
-	    prixKg[0] = poulet > 0 ? poulet : 3.75;
+	    prixKg[0] = poulet > 0 ? poulet : 3.75f;
 	    prixKg[1] = canard > 0 ? canard : 5f;
 	    prixConstant = true;
     }

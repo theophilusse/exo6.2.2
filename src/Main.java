@@ -25,14 +25,17 @@ public class Main {
     */
     public static void loop(Elevage e)
     {
+        int         index;
         Menu        menu;
         String[]    option = { "afficher", "afficher tout", "poulets prets", "canards prets",
                                 "ajouter poulet", "ajouter canard", "vendre poulet", "vendre canard",
                                 "fixer prix", "debloquer prix", "dormir", "quitter" };
 
+        index = -1;
         menu = new Menu(option, "Options: ");
-        while (menu.ask() != 11)
+        while (index != 11)
         {
+            index = menu.ask();
             switch (index)
             {
                 case 0:
@@ -77,7 +80,8 @@ public class Main {
                 }
                 case 8:
                 {
-                    e.m.setPrix(Menu.askRealNumber("Prix du poulet au kg: "), Menu.askRealNumber("Prix du canard au kg: "));
+                    e.m.setPrixKg(Menu.askRealNumber("Prix du poulet au kg: "),
+                                    Menu.askRealNumber("Prix du canard au kg: "));
                     break;
                 }
                 case 9:
