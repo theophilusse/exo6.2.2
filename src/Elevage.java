@@ -38,7 +38,7 @@ public class Elevage {
      * @param int n
      *
     */
-    public void          ajouterPoulets(int n)
+    public void          ajouterPoulet(int n)
     {
         for (int i = 0; i < n; i++)
             p.add(new Poulet());
@@ -92,7 +92,7 @@ public class Elevage {
      * @return float gain
      *
     */
-    public float         vendrePoulet(int n)
+    public float         vendrePoulets(int n)
     {
         float           gain;
 

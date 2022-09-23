@@ -65,7 +65,7 @@ public class Menu {
         }
     }
 
-    private static String           askString(String prompt)
+    public static String           askString(String prompt)
     {
         String      s;
 
