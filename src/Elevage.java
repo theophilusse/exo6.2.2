@@ -1,5 +1,10 @@
 import java.util.ArrayList;
 
+/**
+ *
+ * Classe Elevage, fais pousser des volailles en echange d'argent.
+ *
+*/
 public class Elevage {
     String nom;
     Marche                     m;
@@ -8,6 +13,14 @@ public class Elevage {
     int                        date;
     float                      cash;
 
+    /**
+     *
+     * Constructeur d'elevage.
+     * Cree une liste de poulets et de canards, initialisation de l'orloge et du portefeuille.
+     * 
+     * @param String nom
+     *
+    */
     public Elevage(String nom)
     {
         this.nom = nom;
@@ -18,18 +31,40 @@ public class Elevage {
         m = new Marche();
     }
 
-    public void          ajouterPoulet(int n)
+    /**
+     *
+     * Methode pour ajouter un certain nombre de poulets.
+     *
+     * @param int n
+     *
+    */
+    public void          ajouterPoulets(int n)
     {
         for (int i = 0; i < n; i++)
             p.add(new Poulet());
     }
 
-    public void          ajouterCannard(int n)
+    /**
+     *
+     * Methode pour ajouter un certain nombre de canards.
+     *
+     * @param int n
+     *
+    */
+    public void          ajouterCanard(int n)
     {
         for (int i = 0; i < n; i++)
             c.add(new Canard());
     }
 
+    /**
+     *
+     * Methode vendant jusqu'a n nombre de canards prets, au prix de vente du jour.
+     *
+     * @param int n
+     * @return float gain
+     *
+    */
     public float         vendreCanards(int n)
     {
         float           gain;
@@ -41,6 +76,7 @@ public class Elevage {
             if (c.get(i).isReady()) {
                 gain += m.prix(c.get(i));
                 c.remove(i);
+        		i--;
                 if (--n <= 0)
                     break;
             }
@@ -48,6 +84,14 @@ public class Elevage {
         return (gain);
     }
 
+    /**
+     *
+     * Methode vendant jusqu'a n nombre de poulets prets, au prix de vente du jour.
+     *
+     * @param int n
+     * @return float gain
+     *
+    */
     public float         vendrePoulet(int n)
     {
         float           gain;
@@ -59,6 +103,7 @@ public class Elevage {
             if (p.get(i).isReady()) {
                 gain += m.prix(p.get(i));
                 p.remove(i);
+		        i--;
                 if (--n <= 0)
                     break;
             }
@@ -66,8 +111,17 @@ public class Elevage {
         return (gain);
     }
 
-    public void     newDay(int n)
+    /**
+     *
+     * Methode incrementant la date de n jours, fais grandir les volailles en consequence.
+     *
+     * @param int n
+     *
+    */
+    public int      newDay(int n)
     {
+        if (n == 0)
+            return (0);
         for (int j = 0; j < n; j++)
         {
             m.newDay();
@@ -75,31 +129,52 @@ public class Elevage {
                 p.get(i).grow();
             for (int i = 0; i < c.size(); i++)
                 c.get(i).grow();
+            date++;
         }
+        return (n);
     }
 
+    /**
+     *
+     * Methode comptant le nombre de poulets prets a la vente.
+     *
+     * @return int count
+     *
+    */
     public int      pouletsPret()
     {
         int     count;
 
         count = 0;
-        for (int i = 0; i < p.size(); i++)                      // Compte les poulets disponibles a la vente
+        for (int i = 0; i < p.size(); i++)
             if (p.get(i).isReady())
                 count++;
         return (count);
     }
 
+    /**
+     *
+     * Methode comptant le nombre de canards prets a la vente.
+     *
+     * @return int count
+     *
+    */
     public int      canardsPret()
     {
         int     count;
 
         count = 0;
-        for (int i = 0; i < c.size(); i++)                      // Compte les poulets disponibles a la vente
+        for (int i = 0; i < c.size(); i++)
             if (c.get(i).isReady())
                 count++;
         return (count);
     }
 
+    /**
+     *
+     * Methode affichant les details toutes les volailles.
+     *
+    */
     public void     afficherElevage()
     {
         for (int i = 0; i < p.size(); i++)
@@ -108,6 +183,13 @@ public class Elevage {
             Terminal.ecrireStringln(c.get(i) + "");
     }
 
+    /**
+     *
+     * Methode calculant le poids moyen de tout les poulets.
+     *
+     * @return Float
+     *
+    */
     public float    poidsMoyenPoulets()
     {
         float           sum;
@@ -118,6 +200,13 @@ public class Elevage {
         return (sum / p.size());
     }
 
+    /**
+     *
+     * Methode calculant le poids moyen de tout les canards.
+     *
+     * @return float
+     *
+    */
     public float    poidsMoyenCanards()
     {
         float           sum;
@@ -128,10 +217,16 @@ public class Elevage {
         return (sum / c.size());
     }
 
+    /**
+     *
+     * Methode retournant les informations de l'elevage au format humain.
+     *
+     * @return String out
+     *
+    */
     public String   toString()
     {
         String          out;
-        int             count;
 
         // Affiche le nom de l'elevage et le nombre de poulets prets
         out = "Elevage " + nom + "\nPoulets: " + p.size() + " (" + pouletsPret() + " prets)\n";

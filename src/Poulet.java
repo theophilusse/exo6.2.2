@@ -1,12 +1,31 @@
+/**
+ *
+ * Classe Poulet heritee de Volaille, avec croissance specifique.
+ *
+*/
 public class Poulet extends Volaille {
 
     float           calibreMin;
+
+    /**
+     *
+     * Constructeur de poulet, assigne le calibre minimum a la vente.
+     *
+    */
     public          Poulet()
     {
         super();
         calibreMin = 5f;
     }
 
+    /**
+     *
+     * Methode faisant grandir un poulet (poids et taille), plus vite en debut de croissance.
+     * La croissance est de 60 jours.
+     *
+     * @return float v
+     *
+    */
     public float    grow()
     {
         float       v;
@@ -22,6 +41,11 @@ public class Poulet extends Volaille {
         return (v);
     }
 
+    /**
+     *
+     * Methode s'assurant de la taille minimum d'un poulet pour la vente.
+     *
+    */
     public boolean  isReady()
     {
         if (taille > calibreMin)
@@ -29,8 +53,14 @@ public class Poulet extends Volaille {
         return (false);
     }
 
-    @Override
-    public String       toString()
+    /**
+     *
+     * Methode renvoyant les informations du poulet au format humain.
+     *
+     * @return String
+     *
+    */
+    public String   toString()
     {
         return ("Poulet " + super.toString());
     }
