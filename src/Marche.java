@@ -31,8 +31,8 @@ public class Marche {
      *
      * Bloque les prix de vente sur une valeur fixe.
      *
-     * @param float prixPoulet
-     * @param float prixCanard
+     * @param poulet prixPoulet
+     * @param canard prixCanard
      *
     */
     public void		        setPrixKg(float poulet, float canard)
@@ -56,8 +56,8 @@ public class Marche {
      *
      * Methode calculant le prix d'un poulet donne, en fonction de son poids et du prix au kilo ce jour.
      *
-     * @param Poulet p
-     * @return float
+     * @param p Poulet.
+     * @return Prix total du poulet.
      *
     */
     public float            prix(Poulet p)
@@ -72,8 +72,8 @@ public class Marche {
      *
      * Methode calculant le prix d'un canard donne, en fonction de son poids et du prix au kilo ce jour.
      *
-     * @param Canard c
-     * @return float
+     * @param c Canard.
+     * @return Prix total du canard.
      *
     */
     public float            prix(Canard c)

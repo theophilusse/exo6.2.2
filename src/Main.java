@@ -8,7 +8,7 @@ public class Main {
      *
      * Main test.
      *
-     * @param String[] args
+     * @param args Liste d'argurments.
      *
     */
     public static void main(String[] args)
@@ -20,7 +20,7 @@ public class Main {
      *
      * Boucle principale.
      *
-     * @param Elevage e
+     * @param e Elevage.
      *
     */
     public static void loop(Elevage e)

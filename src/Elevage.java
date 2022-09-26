@@ -18,7 +18,7 @@ public class Elevage {
      * Constructeur d'elevage.
      * Cree une liste de poulets et de canards, initialisation de l'orloge et du portefeuille.
      * 
-     * @param String nom
+     * @param nom Nom de l'elevage
      *
     */
     public Elevage(String nom)
@@ -35,7 +35,7 @@ public class Elevage {
      *
      * Methode pour ajouter un certain nombre de poulets.
      *
-     * @param int n
+     * @param n Nombre de poulets
      *
     */
     public void          ajouterPoulet(int n)
@@ -48,7 +48,7 @@ public class Elevage {
      *
      * Methode pour ajouter un certain nombre de canards.
      *
-     * @param int n
+     * @param n Nombre de canards
      *
     */
     public void          ajouterCanard(int n)
@@ -61,7 +61,7 @@ public class Elevage {
      *
      * Methode vendant jusqu'a n nombre de canards prets, au prix de vente du jour.
      *
-     * @param int n
+     * @param n Nombre maximum de canard a vendre.
      * @return float gain
      *
     */
@@ -88,7 +88,7 @@ public class Elevage {
      *
      * Methode vendant jusqu'a n nombre de poulets prets, au prix de vente du jour.
      *
-     * @param int n
+     * @param n Nombre maximum de poulet a vendre.
      * @return float gain
      *
     */
@@ -115,7 +115,8 @@ public class Elevage {
      *
      * Methode incrementant la date de n jours, fais grandir les volailles en consequence.
      *
-     * @param int n
+     * @param n Nombre de jours a attendre.
+     * @return n Nombre de jours attendu
      *
     */
     public int      newDay(int n)

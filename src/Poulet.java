@@ -45,6 +45,8 @@ public class Poulet extends Volaille {
      *
      * Methode s'assurant de la taille minimum d'un poulet pour la vente.
      *
+     * @return Booleen
+     *
     */
     public boolean  isReady()
     {
